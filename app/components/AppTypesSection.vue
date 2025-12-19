@@ -34,6 +34,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .type {
