@@ -17,8 +17,17 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
   },
-   css: ['@/assets/style/main.scss'],
-    alias: {
+  css: ['@/assets/style/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/style/mixins.scss" as *;'
+        }
+      }
+    }
+  },
+  alias: {
     '@': fileURLToPath(new URL('.', import.meta.url))
   }
 
