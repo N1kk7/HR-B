@@ -1,0 +1,9 @@
+@use './mixins.scss' as *;
+@use './variables.scss' as *;
+@import './default.css';
+
+
+
+body{
+    background-color: white;
+}
