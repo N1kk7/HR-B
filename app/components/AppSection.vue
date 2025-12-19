@@ -16,6 +16,8 @@
 
 <style scoped lang="scss">
   .section{
+    margin-bottom: 70px;
+
     h2 {
       @include text(48px, 150%, 300);
       color: var(--text-primary);
