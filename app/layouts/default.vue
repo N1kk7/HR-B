@@ -3,6 +3,7 @@
     <!-- <AppHeader />
     <MobileMenu /> -->
     <!-- <StickyHeader /> -->
+    <AppHeader/>
 
     <main >
       <slot />
@@ -30,6 +31,7 @@
 
 <script setup>
   import AppFooter from "~/components/AppFooter.vue";
+  import AppHeader from "~/components/AppHeader.vue";
 //   import Modal from "~/components/Modals/Modal.vue";
 //   import StickyHeader from "@/components/StickyHeader.vue";
   // import Tooltips from "~/components/shared/Tooltips.vue";

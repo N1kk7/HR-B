@@ -1,6 +1,7 @@
 <template>
     <div>
-        Hello world
+
+        <AppHeroSection />
 
         <AppTypesSection />
 
