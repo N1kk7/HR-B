@@ -74,6 +74,10 @@
             font-weight: 300;
             line-height: 150%;
 
+            @media screen and (max-width: 768px) {
+                font-size: 18px;
+            }
+
             @media screen and (max-width: 480px) {
                 font-size: clamp(16px, 5vw, 18px);
             }

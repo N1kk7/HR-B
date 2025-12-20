@@ -89,7 +89,7 @@
             <span> Kitchen cabinets </span>
           </div>
 
-          <button class="view_btn">View portfolio</button>
+          <a class="view_btn" href="#portfolio">View portfolio</a>
         </div>
       </div>
     </div>
@@ -100,7 +100,6 @@
 
 <style lang="scss">
 .hero_section {
-  // background-image: url('../../public/images/hero.webp');
   background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0.3) 0%,
@@ -114,6 +113,20 @@
   height: 100vh;
   position: relative;
   margin-bottom: 90px;
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 64px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 42px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 375px) {
+    margin-bottom: 32px;
+  }
+
 }
 
 .hero_wrapper {

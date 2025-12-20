@@ -54,12 +54,34 @@ h3 {
   padding-bottom: 20px;
   border-bottom: 1px solid var(--divider-color);
   margin-bottom: 20px;
+  @media screen and (max-width: 768px) {
+    @include text(36px, 150%, 300);
+    
+  }
+  @media screen and (max-width: 480px) {
+    @include text(28px, 150%, 300);
+    
+  }
+  @media screen and (max-width: 375px) {
+    @include text(22px, 150%, 300);
+    
+  }
 }
 
 p {
   @include text(22px, 150%, 300);
   color: var(--text-secondary);
   margin-bottom: 20px;
+  @media screen and (max-width: 768px) {
+    @include text(20px, 150%, 300);
+    
+  }
+  @media screen and (max-width: 480px) {
+    @include text(18px, 150%, 300);
+  }
+  @media screen and (max-width: 375px) {
+    @include text(16px, 150%, 300);
+  }
 }
 
 .picture {
