@@ -137,6 +137,10 @@
 
   @media screen and (max-width: 768px) {
     width: 100%;
+    gap: 22px;
+  }
+    @media screen and (max-width: 480px) {
+    gap: 16px;
   }
 }
 
@@ -243,12 +247,24 @@ font-family: 'Roboto', sans-serif;
   line-height: 150%;
 font-family: 'Roboto', sans-serif;
 
+    &:active {
+      background-color: var(--btn-hover);
+      transition: all ease 0.3s;
+    }
+
 
   @media screen and (min-width: 1024px) {
     &:hover {
       background-color: var(--btn-hover);
       transition: all ease 0.3s;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
+    @media screen and (max-width: 480px) {
+    margin-top: 12px;
   }
 }
 </style>

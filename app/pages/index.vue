@@ -3,10 +3,10 @@
 
         <AppHeroSection />
 
-        <AppTypesSection />
+        <AppTypesSection id="types"/>
 
-        <AppReviewsSection />
+        <AppReviewsSection id="reviews"/>
 
-        <AppPortfolioSection />
+        <AppPortfolioSection id="portfolio"/>
     </div>
 </template>

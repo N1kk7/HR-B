@@ -9,9 +9,8 @@
                     <span class="author">
                         Anton Romanov
                     </span>
-                    <span>
-                        +15082154267  
-                    </span>
+                    <a href="tel:+15082154267 ">+15082154267</a>
+                    
                     <span>
                         HR.B.Construction24@gmail.com
                     </span>
@@ -69,7 +68,7 @@
         justify-content: center;
         gap: 10px;
 
-        span{
+        span, a{
             color: var(--text-secondary);
             font-size: 20px;
             font-weight: 300;

@@ -4,7 +4,7 @@
       Client Reviews
     </template>
     <div class="reviews">
-      <div class="review" v-for="review in reviews">
+      <div class="review" v-for="(review, i) in reviews" :key="i">
         <p>{{ review }}</p>
       </div>
     </div>

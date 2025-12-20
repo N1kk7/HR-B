@@ -14,13 +14,17 @@
             <nav class="nav_wrapper">
                 <ul class="nav_items">
                     <li class="nav_item">
-                        Types of work
+                        <a href="#types">Types of work</a>
                     </li>
                      <li class="nav_item">
-                        Client Reviews
+                        <a href="#reviews">
+                            Client Reviews
+                        </a>
                     </li>
                      <li class="nav_item">
-                        Portfolio
+                        <a href="#portfolio">
+                            Portfolio
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -51,14 +55,18 @@
                     </svg>
                 </button>
                 <ul>
-                    <li>
-                        Types of work
+                    <li @click="burgerMenuHandler">
+                        <a href="#types">Types of work</a>
                     </li>
-                    <li>
-                        Client Reviews
+                    <li @click="burgerMenuHandler">
+                        <a href="#reviews">
+                            Client Reviews
+                        </a>
                     </li>
-                    <li>
-                        Portfolio
+                    <li @click="burgerMenuHandler">
+                        <a href="#portfolio">
+                            Portfolio
+                        </a>
                     </li>
                 </ul>
 
@@ -167,6 +175,13 @@
 
             }
 
+        }
+
+        @media screen and (max-width: 1024px) {
+            &:active{
+                color: var(--btn-hover);
+                transition: all ease 0.3s;
+            }
         }
     }
 
