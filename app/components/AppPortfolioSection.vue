@@ -4,51 +4,119 @@
       Portfolio
     </template>
     <div class="portfolio">
-      <div class="item">
-        <div class="picture">
-          <img src="@/public/images/type1.webp" alt="type1">
-        </div>
-      </div>
-      <div class="item">
-        <div class="picture">
-          <img src="@/public/images/type2.webp" alt="type2">
-        </div>
-      </div>
-      <div class="item">
-        <div class="picture">
-          <img src="@/public/images/type3.webp" alt="type3">
-        </div>
-      </div>
+      <ClientOnly>
+        <swiper-container navigation="true" ref="containerRef">
+          <swiper-slide
+            v-for="(slide, id) in slides"
+            :key="id"
+            style="background-color: rgb(32, 233, 70); color: white;"
+          >
+            <div class="item">
+              <div class="picture">
+                <img :src="slide.picture" alt="type1">
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper-container>
+      </ClientOnly>
     </div>
   </AppSection>
 </template>
 
+<script setup>
+// Create 10 slides
+const containerRef = ref(null)
+const slides = [
+  {
+    id: 0,
+    picture: '/images/carusel1.webp'
+  },
+  {
+    id: 1,
+    picture: '/images/carusel2.webp'
+  },
+  {
+    id: 2,
+    picture: '/images/carusel3.webp'
+  },
+  {
+    id: 3,
+    picture: '/images/carusel4.webp'
+  },
+  {
+    id: 4,
+    picture: '/images/carusel5.webp'
+  },
+  {
+    id: 5,
+    picture: '/images/carusel6.webp'
+  }
+]
+
+const swiper = useSwiper(containerRef, {
+  effect: 'creative',
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  breakpoints: {
+    481: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  },
+  autoplay: {
+    delay: 5000,
+  },
+})
+</script>
+
 <style lang="scss" scoped>
-.portfolio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media screen and (max-width: 480px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
-
 .item {
   width: 100%;
 }
 
 .picture {
-  @include aspect-ratio-modern(392, 300);
+  @include aspect-ratio-modern(392, 523);
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.50);
+  color: transparent;
+
+  background-image: url('/images/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 23px;
+}
+
+swiper-container::part(button-prev) {
+  left: 0;
+}
+
+swiper-container::part(button-next) {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+swiper-container::part(button-prev) svg,
+swiper-container::part(button-next) svg {
+  display: none;
 }
 </style>
