@@ -73,11 +73,10 @@
             })
         } else {
             gsap.from(rightContent.value, {
-                y: 50,
+                y: 90,
                 opacity: 0,
-                duration: 1,
-                delay: 0.5,
-                ease: 'power4.out',
+                duration: 0.85,
+                ease: 'power2.out',
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: rightContent.value,
@@ -87,10 +86,10 @@
             })
 
             gsap.from(leftContent.value, {
-                y: 50,
+                y: 90,
                 opacity: 0,
-                duration: 1,
-                ease: 'power4.out',
+                duration: 0.85,
+                ease: 'power2.out',
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: leftContent.value,
