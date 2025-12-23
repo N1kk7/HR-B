@@ -73,29 +73,27 @@
             })
         } else {
             gsap.from(rightContent.value, {
-                y: 90,
-                opacity: 0,
-                duration: 0.85,
-                ease: 'power2.out',
-                stagger: 0.25,
-                scrollTrigger: {
-                    trigger: rightContent.value,
-                    start: 'top 80%',
-                    once: true
-                }
+                yPercent: 30,
+  opacity: 0,
+  duration: 0.9,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: el,
+    start: 'top bottom-=80',
+    once: true
+  }
             })
 
             gsap.from(leftContent.value, {
-                y: 90,
-                opacity: 0,
-                duration: 0.85,
-                ease: 'power2.out',
-                stagger: 0.25,
-                scrollTrigger: {
-                    trigger: leftContent.value,
-                    start: 'top 80%',
-                    once: true
-                }
+                yPercent: 30,
+  opacity: 0,
+  duration: 0.9,
+  ease: 'power2.out',
+  scrollTrigger: {
+    trigger: el,
+    start: 'top bottom-=80',
+    once: true
+  }
             })
 
         }
