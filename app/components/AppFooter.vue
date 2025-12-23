@@ -73,29 +73,29 @@
             })
         } else {
             gsap.from(rightContent.value, {
-                y: 90,
+                y: 60,
                 opacity: 0,
-                duration: 1.5,
+                duration: 0.7,
                 delay: 0.5,
-                ease: 'power2.out',
+                ease: 'power3.out',
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: rightContent.value,
-                    start: 'top 80%',
+                    start: 'top 95%',
                     once: true
                 }
             })
 
             gsap.from(leftContent.value, {
-                y: 90,
+                y: 60,
                 opacity: 0,
-                duration: 1.5,
+                duration: 0.7,
                 delay: 0.5,
-                ease: 'power2.out',
+                ease: 'power3.out',
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: leftContent.value,
-                    start: 'top 80%',
+                    start: 'top 95%',
                     once: true
                 }
             })
