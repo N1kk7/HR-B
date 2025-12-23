@@ -78,7 +78,7 @@
   duration: 0.9,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: el,
+    trigger: rightContent.value,
     start: 'top bottom-=80',
     once: true
   }
@@ -90,7 +90,7 @@
   duration: 0.9,
   ease: 'power2.out',
   scrollTrigger: {
-    trigger: el,
+    trigger: leftContent.value,
     start: 'top bottom-=80',
     once: true
   }
