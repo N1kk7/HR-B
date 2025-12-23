@@ -76,7 +76,7 @@
                 y: 50,
                 opacity: 0,
                 duration: 1,
-                delay: 0.7,
+                delay: 0.2,
                 ease: 'power4.out',
                 stagger: 0.25,
                 scrollTrigger: {
@@ -90,7 +90,6 @@
                 y: 50,
                 opacity: 0,
                 duration: 1,
-                delay: 0.7,
                 ease: 'power4.out',
                 stagger: 0.25,
                 scrollTrigger: {
