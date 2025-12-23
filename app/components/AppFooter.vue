@@ -75,8 +75,8 @@
             gsap.from(rightContent.value, {
                 y: 60,
                 opacity: 0,
-                duration: 0.7,
-                delay: 0.5,
+                duration: 1.7,
+                delay: 0.6,
                 ease: 'power3.out',
                 stagger: 0.25,
                 scrollTrigger: {
@@ -89,8 +89,8 @@
             gsap.from(leftContent.value, {
                 y: 60,
                 opacity: 0,
-                duration: 0.7,
-                delay: 0.5,
+                duration: 1.7,
+                delay: 0.6,
                 ease: 'power3.out',
                 stagger: 0.25,
                 scrollTrigger: {
