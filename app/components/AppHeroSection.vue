@@ -1,8 +1,25 @@
 <template>
   <div class="hero_section">
+
+    <!-- <NuxtImg
+      ref="imgRef"
+      src="/images/hero.webp"
+      class="hero_img"
+    /> -->
+    <!-- <img ref="imgRef" src="/images/hero.webp" class="hero_img" /> -->
+  <img
+      ref="imgRef"
+      src="/images/hero.webp"
+      class="hero_img"
+      alt="hero"
+      style="transform: scale(1.15); opacity: 0.7;"
+    />
+
+    <div class="hero_overlay"></div>
+
     <div class="container">
       <div class="hero_wrapper">
-        <div class="hero_content">
+        <div class="hero_content" ref="contentRef">
           <div class="mobile_logo">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,23 +113,56 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+import gsap from 'gsap'
+
+const imgRef = ref(null);
+const contentRef = ref(null);
+
+
+onMounted(() => {
+  const tl = gsap.timeline({ defaults: { ease: 'back.out(1.1)' } })
+  const el = imgRef.value
+  if (!el) return
+
+  tl.to(el, {
+    scale: 1,
+    opacity: 1,
+    duration: 1.8,
+    // ease: "back.out(1.2)" ,
+  ease: 'power4.out'
+
+  })
+
+  const contentEls = contentRef.value.querySelectorAll('.mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn')
+
+contentEls.forEach(el => {
+  el.style.opacity = 0
+  el.style.transform = 'translateY(30px)'
+})
+
+  gsap.to(contentEls, {
+  y: 0,
+  opacity: 1,
+  stagger: 0.2,
+  duration: 0.8,
+  delay: 0.7,
+  ease: 'power4.out'
+})
+  
+})
+</script>
 
 <style lang="scss">
 .hero_section {
-  background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    ),
-    url("../../public/images/hero.webp") lightgray 50% / cover no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+
+  background-color: lightgray;
   width: 100vw;
   height: 100vh;
   position: relative;
   margin-bottom: 90px;
+  overflow: hidden;
 
   @media screen and (max-width: 1024px) {
     margin-bottom: 64px;
@@ -129,10 +179,34 @@
 
 }
 
+.hero_img{
+  position: absolute;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 2;
+}
+
 .hero_wrapper {
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 100;
+
 }
 
 .hero_content {
