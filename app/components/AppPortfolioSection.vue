@@ -101,6 +101,19 @@ onMounted(async () => {
     }
   })
 
+  gsap.from(containerRef.value, {
+    y: 80,
+    opacity: 0,
+    duration: 0.8,
+    // stagger: 0.25,
+    scrollTrigger: {
+      trigger: containerRef.value,
+      start: 'top 80%',
+      once: true
+    }
+    
+  })
+
 
 
 

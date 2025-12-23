@@ -68,7 +68,7 @@ onMounted(async () => {
     ease: 'power4.out',
     scrollTrigger: {
       trigger: titleRef.value,
-      start: 'top 80%',
+      start: 'top 70%',
       once: true
     }
   })
@@ -82,7 +82,7 @@ if (isDesktop) {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: typeRefs.value[0],
-        start: 'top 85%',
+        start: 'top 75%',
         once: true
       }
     })
@@ -95,7 +95,7 @@ if (isDesktop) {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%',
+          start: 'top 80%',
           once: true
         }
       })
