@@ -1,24 +1,26 @@
 <template>
   <AppSection>
-    <template #title>
-      Types of work
+    <template #title >
+      <div ref="titleRef">
+        Types of work
+      </div>
     </template>
     <div class="types">
-      <div class="type">
+      <div class="type" :ref="setTypeRef">
         <h3>Tile installation</h3>
         <p>floors, kitchen backsplashes, and bathroom walls/floors</p>
         <div class="picture">
           <img src="@/public/images/type1.webp" alt="type1">
         </div>
       </div>
-      <div class="type">
+      <div class="type" :ref="setTypeRef">
         <h3>Kitchen cabinets</h3>
         <p>installation, assembly, and high-quality painting/refinishing</p>
         <div class="picture">
           <img src="@/public/images/type2.webp" alt="type2">
         </div>
       </div>
-      <div class="type">
+      <div class="type" :ref="setTypeRef">
         <h3>Wallpaper installation</h3>
         <p>all types of wall coverings, precise and clean finish</p>
         <div class="picture">
@@ -28,6 +30,89 @@
     </div>
   </AppSection>
 </template>
+
+<script setup>
+
+  import { ref, onMounted, nextTick, onBeforeUpdate } from 'vue';
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger);
+
+  const titleRef = ref(null);
+  const typeRefs = ref([]);
+
+
+  const setTypeRef = (el) => {
+  if (el) {
+    typeRefs.value.push(el)
+  }
+}
+  
+
+onBeforeUpdate(() => {
+  typeRefs.value = []
+})
+
+onMounted(async () => {
+
+  const isDesktop = window.innerWidth >= 1024;
+
+
+   await nextTick();
+
+
+     gsap.from(titleRef.value, {
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: 'power4.out',
+    scrollTrigger: {
+      trigger: titleRef.value,
+      start: 'top 80%',
+      once: true
+    }
+  })
+
+if (isDesktop) {
+    gsap.from(typeRefs.value, {
+      y: 80,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.25,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: typeRefs.value[0],
+        start: 'top 85%',
+        once: true
+      }
+    })
+  } else {
+    typeRefs.value.forEach((el) => {
+      gsap.from(el, {
+        y: 60,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 90%',
+          once: true
+        }
+      })
+    })
+  }
+
+
+
+})
+    
+
+
+
+
+
+
+</script>
 
 <style lang="scss" scoped>
 .types {

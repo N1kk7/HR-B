@@ -1,7 +1,9 @@
 <template>
   <AppSection>
     <template #title>
-      Portfolio
+      <div ref="titleRef">
+        Portfolio
+      </div>
     </template>
     <div class="portfolio">
       <ClientOnly>
@@ -24,6 +26,16 @@
 </template>
 
 <script setup>
+
+  import {ref, onMounted} from 'vue'
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const titleRef = ref(null);
+
+
 // Create 10 slides
 const containerRef = ref(null)
 const slides = [
@@ -70,6 +82,34 @@ const swiper = useSwiper(containerRef, {
     delay: 5000,
   },
 })
+
+
+onMounted(async () => {
+
+ await nextTick();
+
+
+   gsap.from(titleRef.value, {
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: 'power4.out',
+    scrollTrigger: {
+      trigger: titleRef.value,
+      start: 'top 80%',
+      once: true
+    }
+  })
+
+
+
+
+})
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped>
