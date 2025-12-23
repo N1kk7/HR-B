@@ -1,6 +1,6 @@
 <template>
 
-    <div class="app_header">
+    <div class="app_header" ref="headerRef">
 
         <div class="container">
 
@@ -87,15 +87,47 @@
 
 <script setup>
 
-    import { ref } from 'vue';
+    import gsap from 'gsap'
+
+    import { ref, onMounted } from 'vue';
 
     const burgerState = ref(false)
+
+    const headerRef = ref(null);
 
 
     const burgerMenuHandler = () => {
         burgerState.value = !burgerState.value;
         document.body.style.overflow = burgerState.value ? 'hidden' : 'auto'
     }
+
+
+    onMounted(() => {
+
+        const tl = gsap.timeline({ defaults: { ease: 'back.out(1.1)' } })
+        const el = headerRef.value
+        if (!el) return
+
+        tl.from(el, {
+            opacity: 0,
+            duration: 1.8,
+            top: -100,
+            delay: 1,
+            ease: 'power4.out'
+
+            
+        })
+
+
+
+
+
+
+    })
+
+
+
+
 
 
 
