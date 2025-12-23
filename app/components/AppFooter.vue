@@ -81,7 +81,7 @@
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: rightContent.value,
-                    start: 'top 95%',
+                    start: 'top 130%',
                     once: true
                 }
             })
@@ -95,7 +95,7 @@
                 stagger: 0.25,
                 scrollTrigger: {
                     trigger: leftContent.value,
-                    start: 'top 95%',
+                    start: 'top 130%',
                     once: true
                 }
             })
