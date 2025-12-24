@@ -16,9 +16,9 @@
                 <!-- <img :src="slide.picture" alt="type1" /> -->
                  <NuxtImg
                     :src="slide.picture"
-                    alt="type1"
-                    width="600"
-                    height="400"
+                    :alt="slide.id"
+                    :width="slide.width"
+                    :height="slide.height"
                     format="webp"
                     quality="80"
                     lazy
@@ -47,26 +47,38 @@ const slides = [
   {
     id: 0,
     picture: "/images/carusel1.webp",
+    width: 600,
+    height: 400,
   },
   {
     id: 1,
     picture: "/images/carusel2.webp",
+    width: 600,
+    height: 400,
   },
   {
     id: 2,
     picture: "/images/carusel3.webp",
+    width: 600,
+    height: 400,
   },
   {
     id: 3,
     picture: "/images/carusel4.webp",
+    width: 600,
+    height: 400,
   },
   {
     id: 4,
     picture: "/images/carusel5.webp",
+    width: 600,
+    height: 400,
   },
   {
     id: 5,
     picture: "/images/carusel6.webp",
+    width: 600,
+    height: 400,
   },
 ];
 
