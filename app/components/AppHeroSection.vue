@@ -1,10 +1,21 @@
 <template>
   <div class="hero_section">
-    <img
+    <!-- <img
       ref="imgRef"
       src="/images/hero.webp"
       class="hero_img"
       alt="hero"
+      style="transform: scale(1.15); opacity: 0.7"
+    /> -->
+
+    <NuxtImg
+      ref="imgRef"
+      src="/images/hero.webp"
+      class="hero_img"
+      width="1200"
+      height="600"
+      priority
+      lazy
       style="transform: scale(1.15); opacity: 0.7"
     />
 
@@ -109,18 +120,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
 import gsap from "gsap";
 
 const imgRef = ref(null);
 const contentRef = ref(null);
 
-onMounted(() => {
+onMounted(async() => {
+  await nextTick();
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
-  const el = imgRef.value;
-  if (!el) return;
+  // const el = imgRef.value;
+  const imgEl = imgRef.value.imgEl;
 
-  tl.to(el, {
+  console.log(imgEl);
+
+  if (!imgEl) return;
+
+
+  tl.to(imgEl, {
     scale: 1,
     opacity: 1,
     duration: 1.8,
