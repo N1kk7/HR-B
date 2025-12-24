@@ -124,7 +124,7 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
-import gsap from "gsap";
+import {gsap} from "gsap";
 
 const imgRef = ref(null);
 const contentRef = ref(null);

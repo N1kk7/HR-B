@@ -4,7 +4,7 @@
       <div class="header_content">
         <a class="tablet_tel" href="tel:+15082154267">+15082154267</a>
 
-        <img class="header_logo" src="/images/logo.webp" alt="logo" />
+        <img class="header_logo" src="/images/logo.webp" alt="logo" width="120" height="40"/>
 
         <nav class="nav_wrapper">
           <ul class="nav_items">
@@ -96,7 +96,7 @@
 </template>
 
 <script setup>
-import gsap from "gsap";
+import { gsap } from "gsap";
 
 import { ref, onMounted } from "vue";
 
@@ -127,146 +127,146 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.app_header {
-  width: 100%;
-  height: fit-content;
-  margin-top: 40px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent;
-  z-index: 50;
-}
+// .app_header {
+//   width: 100%;
+//   height: fit-content;
+//   margin-top: 40px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   background: transparent;
+//   z-index: 50;
+// }
 
-.header_content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// .header_content {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
-.header_logo {
-  @media screen and (max-width: 768px) {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: clamp(80px, 20vw, 120px);
-  }
+// .header_logo {
+//   @media screen and (max-width: 768px) {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: clamp(80px, 20vw, 120px);
+//   }
 
-  @media screen and (max-width: 480px) {
-    display: none;
-  }
-}
+//   @media screen and (max-width: 480px) {
+//     display: none;
+//   }
+// }
 
-.nav_wrapper {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
+// .nav_wrapper {
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// }
 
-.nav_items {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: 60px;
+// .nav_items {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex: 1;
+//   gap: 60px;
 
-  @media screen and (max-width: 1024px) {
-    gap: clamp(15px, 3vw, 55px);
-  }
-}
+//   @media screen and (max-width: 1024px) {
+//     gap: clamp(15px, 3vw, 55px);
+//   }
+// }
 
-.nav_item {
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 150%;
-  color: var(--bg-color);
-  transition: all ease 0.3s;
-  cursor: pointer;
-  padding: 10px;
+// .nav_item {
+//   font-family: "Roboto", sans-serif;
+//   font-size: 20px;
+//   font-weight: 400;
+//   line-height: 150%;
+//   color: var(--bg-color);
+//   transition: all ease 0.3s;
+//   cursor: pointer;
+//   padding: 10px;
 
-  @media screen and (min-width: 1024px) {
-    &:hover {
-      color: var(--btn-hover);
-      transition: all ease 0.3s;
-    }
-  }
+//   @media screen and (min-width: 1024px) {
+//     &:hover {
+//       color: var(--btn-hover);
+//       transition: all ease 0.3s;
+//     }
+//   }
 
-  @media screen and (max-width: 1024px) {
-    &:active {
-      color: var(--btn-hover);
-      transition: all ease 0.3s;
-    }
-  }
-}
+//   @media screen and (max-width: 1024px) {
+//     &:active {
+//       color: var(--btn-hover);
+//       transition: all ease 0.3s;
+//     }
+//   }
+// }
 
-.tel_content,
-.tablet_tel {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 150%;
-  font-family: "Roboto", sans-serif;
-  color: var(--bg-color);
-  padding: 10px;
-}
+// .tel_content,
+// .tablet_tel {
+//   font-size: 20px;
+//   font-weight: 500;
+//   line-height: 150%;
+//   font-family: "Roboto", sans-serif;
+//   color: var(--bg-color);
+//   padding: 10px;
+// }
 
-.tel_content {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
+// .tel_content {
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// }
 
-.tablet_tel {
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-}
+// .tablet_tel {
+//   display: none;
+//   @media screen and (max-width: 768px) {
+//     display: block;
+//   }
+// }
 
-.burger_btn {
-  display: none;
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-}
+// .burger_btn {
+//   display: none;
+//   @media screen and (max-width: 768px) {
+//     display: block;
+//   }
+// }
 
-.mobile_menu {
-  position: fixed;
-  background: var(--bg-color);
-  padding: 42px 32px 40px;
-  transition: all ease 0.3s;
-  top: 0;
-  right: -100%;
+// .mobile_menu {
+//   position: fixed;
+//   background: var(--bg-color);
+//   padding: 42px 32px 40px;
+//   transition: all ease 0.3s;
+//   top: 0;
+//   right: -100%;
 
-  .close_btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    cursor: pointer;
-  }
+//   .close_btn {
+//     position: absolute;
+//     top: 12px;
+//     right: 12px;
+//     cursor: pointer;
+//   }
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 24px;
+//   ul {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-start;
+//     align-items: flex-start;
+//     gap: 24px;
 
-    li {
-      font-size: 1rem;
-      color: var(--text-primary);
-      font-weight: 400;
-      line-height: 150%;
-      font-family: "Roboto", sans-serif;
-      padding: 10px;
-      cursor: pointer;
-    }
-  }
-}
+//     li {
+//       font-size: 1rem;
+//       color: var(--text-primary);
+//       font-weight: 400;
+//       line-height: 150%;
+//       font-family: "Roboto", sans-serif;
+//       padding: 10px;
+//       cursor: pointer;
+//     }
+//   }
+// }
 
-.mobile_menu_active {
-  right: 0;
-  transition: all ease 0.3s;
-}
+// .mobile_menu_active {
+//   right: 0;
+//   transition: all ease 0.3s;
+// }
 </style>
