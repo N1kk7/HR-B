@@ -22,7 +22,7 @@
 
         <a class="tel_content" href="tel:+15082154267">+15082154267</a>
 
-        <button class="burger_btn" @click="burgerMenuHandler">
+        <button class="burger_btn" @click="burgerMenuHandler" aria-label="Open menu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="42"

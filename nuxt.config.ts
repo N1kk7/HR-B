@@ -30,7 +30,10 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
 
-  css: ['@/assets/style/main.scss'],
+  css: [
+    // '@/assets/style/main.scss'
+    '@/assets/style/critical.scss'
+  ],
 
   vite: {
     css: {

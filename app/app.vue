@@ -3,3 +3,15 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+
+
+<script setup>
+
+import { onMounted } from 'vue'
+
+onMounted(async () => {
+  await import('@/assets/style/main.scss')
+})
+
+</script>

@@ -1,0 +1,215 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+.hero_section {
+  background-color: lightgray;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin-bottom: 90px;
+  overflow: hidden;
+
+  @media screen and (max-width: 1024px) {
+    margin-bottom: 64px;
+  }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 42px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 375px) {
+    margin-bottom: 36px;
+  }
+}
+
+.hero_img {
+  position: absolute;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 2;
+}
+
+.hero_wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.hero_content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  gap: 24px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    gap: 22px;
+  }
+  @media screen and (max-width: 480px) {
+    gap: 16px;
+  }
+}
+
+.mobile_logo {
+  display: none;
+  @media screen and (max-width: 480px) {
+    display: block;
+  }
+}
+
+.hero_text {
+  width: 820px;
+  font-size: 1.8rem;
+  color: var(--bg-color);
+  font-family: "Roboto", sans-serif;
+
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: clamp(1.15rem, 5vw, 1.5rem);
+  }
+}
+
+.types_of_work {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+
+  span {
+    font-size: 1.5rem;
+    color: var(--bg-color);
+    font-weight: 300;
+    line-height: 150%;
+    position: relative;
+    white-space: nowrap;
+    font-family: "Roboto", sans-serif;
+
+    @media screen and (max-width: 768px) {
+      font-size: clamp(0.6rem, 3.3vw, 1.25rem);
+    }
+  }
+
+  .dot_elem:before,
+  .dot_elem:after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    transform: translateY(-50%);
+    position: absolute;
+    top: 50%;
+
+    @media screen and (max-width: 768px) {
+      width: 6px;
+      height: 6px;
+    }
+    @media screen and (max-width: 480px) {
+      width: 5px;
+      height: 5px;
+    }
+    @media screen and (max-width: 375px) {
+      width: 4px;
+      height: 4px;
+    }
+  }
+
+  .dot_elem:before {
+    left: -18px;
+
+    @media screen and (max-width: 375px) {
+      left: -10px;
+    }
+  }
+  .dot_elem:after {
+    right: -18px;
+
+    @media screen and (max-width: 375px) {
+      right: -10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 375px) {
+    gap: 16px;
+  }
+}
+
+.view_btn {
+  margin-top: 16px;
+  background-color: var(--btn-color);
+  transition: all ease 0.3s;
+  padding: 12px 28px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: "Roboto", sans-serif;
+
+  &:active {
+    background-color: var(--btn-hover);
+    transition: all ease 0.3s;
+  }
+
+  @media screen and (min-width: 1024px) {
+    &:hover {
+      background-color: var(--btn-hover);
+      transition: all ease 0.3s;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10px;
+  }
+  @media screen and (max-width: 480px) {
+    margin-top: 12px;
+    padding: 8px 22px;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
+  }
+}
