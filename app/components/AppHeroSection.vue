@@ -1,18 +1,11 @@
 <template>
   <div class="hero_section">
-
-    <!-- <NuxtImg
-      ref="imgRef"
-      src="/images/hero.webp"
-      class="hero_img"
-    /> -->
-    <!-- <img ref="imgRef" src="/images/hero.webp" class="hero_img" /> -->
-  <img
+    <img
       ref="imgRef"
       src="/images/hero.webp"
       class="hero_img"
       alt="hero"
-      style="transform: scale(1.15); opacity: 0.7;"
+      style="transform: scale(1.15); opacity: 0.7"
     />
 
     <div class="hero_overlay"></div>
@@ -20,7 +13,7 @@
     <div class="container">
       <div class="hero_wrapper">
         <div class="hero_content" ref="contentRef">
-          <div class="mobile_logo">
+          <div class="mobile_logo" style="opacity: 0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="92"
@@ -95,18 +88,20 @@
             </svg>
           </div>
 
-          <p class="hero_text">
+          <p class="hero_text" style="opacity: 0">
             Over 10 years of fast, clean, and precise work — solo or with a
             team. Open to partnerships and subcontracting opportunities.
           </p>
 
-          <div class="types_of_work">
+          <div class="types_of_work" style="opacity: 0">
             <span> Tile installation </span>
             <span class="dot_elem"> Wallpaper installation </span>
             <span> Kitchen cabinets </span>
           </div>
 
-          <a class="view_btn" href="#portfolio">View portfolio</a>
+          <a class="view_btn" href="#portfolio" style="opacity: 0"
+            >View portfolio</a
+          >
         </div>
       </div>
     </div>
@@ -114,49 +109,47 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import gsap from 'gsap'
+import { ref, onMounted } from "vue";
+import gsap from "gsap";
 
 const imgRef = ref(null);
 const contentRef = ref(null);
 
-
 onMounted(() => {
-  const tl = gsap.timeline({ defaults: { ease: 'back.out(1.1)' } })
-  const el = imgRef.value
-  if (!el) return
+  const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
+  const el = imgRef.value;
+  if (!el) return;
 
   tl.to(el, {
     scale: 1,
     opacity: 1,
     duration: 1.8,
     // ease: "back.out(1.2)" ,
-  ease: 'power4.out'
+    ease: "power4.out",
+  });
 
-  })
+  const contentEls = contentRef.value.querySelectorAll(
+    ".mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn"
+  );
 
-  const contentEls = contentRef.value.querySelectorAll('.mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn')
-
-contentEls.forEach(el => {
-  el.style.opacity = 0
-  el.style.transform = 'translateY(30px)'
-})
+  contentEls.forEach((el) => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(30px)";
+  });
 
   gsap.to(contentEls, {
-  y: 0,
-  opacity: 1,
-  stagger: 0.2,
-  duration: 0.8,
-  delay: 0.7,
-  ease: 'power4.out'
-})
-  
-})
+    y: 0,
+    opacity: 1,
+    stagger: 0.2,
+    duration: 0.8,
+    delay: 0.5,
+    ease: "power4.out",
+  });
+});
 </script>
 
 <style lang="scss">
 .hero_section {
-
   background-color: lightgray;
   width: 100vw;
   height: 100vh;
@@ -174,12 +167,11 @@ contentEls.forEach(el => {
     margin-bottom: 40px;
   }
   @media screen and (max-width: 375px) {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
-
 }
 
-.hero_img{
+.hero_img {
   position: absolute;
   will-change: transform;
   width: 100%;
@@ -206,7 +198,6 @@ contentEls.forEach(el => {
   height: 100%;
   position: relative;
   z-index: 100;
-
 }
 
 .hero_content {
@@ -226,7 +217,7 @@ contentEls.forEach(el => {
     width: 100%;
     gap: 22px;
   }
-    @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     gap: 16px;
   }
 }
@@ -242,8 +233,7 @@ contentEls.forEach(el => {
   width: 820px;
   font-size: 1.8rem;
   color: var(--bg-color);
-font-family: 'Roboto', sans-serif;
-
+  font-family: "Roboto", sans-serif;
 
   @media screen and (max-width: 1024px) {
     width: 100%;
@@ -267,8 +257,7 @@ font-family: 'Roboto', sans-serif;
     line-height: 150%;
     position: relative;
     white-space: nowrap;
-    font-family: 'Roboto', sans-serif;
-
+    font-family: "Roboto", sans-serif;
 
     @media screen and (max-width: 768px) {
       font-size: clamp(0.6rem, 3.3vw, 1.25rem);
@@ -332,13 +321,12 @@ font-family: 'Roboto', sans-serif;
   font-size: 22px;
   font-weight: 400;
   line-height: 150%;
-font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 
-    &:active {
-      background-color: var(--btn-hover);
-      transition: all ease 0.3s;
-    }
-
+  &:active {
+    background-color: var(--btn-hover);
+    transition: all ease 0.3s;
+  }
 
   @media screen and (min-width: 1024px) {
     &:hover {
@@ -350,8 +338,13 @@ font-family: 'Roboto', sans-serif;
   @media screen and (max-width: 768px) {
     margin-top: 10px;
   }
-    @media screen and (max-width: 480px) {
+  @media screen and (max-width: 480px) {
     margin-top: 12px;
+    padding: 8px 22px;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 375px) {
+    font-size: 16px;
   }
 }
 </style>

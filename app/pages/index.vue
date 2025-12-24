@@ -1,12 +1,11 @@
 <template>
-    <div>
+  <div>
+    <AppHeroSection />
 
-        <AppHeroSection />
+    <AppTypesSection id="types" />
 
-        <AppTypesSection id="types"/>
+    <AppReviewsSection id="reviews" />
 
-        <AppReviewsSection id="reviews"/>
-
-        <AppPortfolioSection id="portfolio"/>
-    </div>
+    <AppPortfolioSection id="portfolio" />
+  </div>
 </template>

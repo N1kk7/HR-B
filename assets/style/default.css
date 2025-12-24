@@ -3,8 +3,6 @@
     padding: 0;
     box-sizing: border-box;
   }
-
-  
   html {
     font-size: 100%; /* 1rem = 16px */
     line-height: 1.5;
@@ -24,7 +22,6 @@
     list-style: none;
     padding-left: 0;
   }
-  
   button,
   input,
   textarea {
