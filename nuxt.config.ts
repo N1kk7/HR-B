@@ -22,7 +22,23 @@ export default defineNuxtConfig({
       ],
       htmlAttrs: {
         lang: 'en'
-      }
+      },
+       link: [
+        {
+          rel: 'preload',
+          as: 'font',
+          href: '/_nuxt/Roboto-Light.woff2',
+          type: 'font/woff2',
+          crossorigin: 'anonymous'
+        },
+        {
+          rel: 'preload',
+          as: 'font',
+          href: '/_nuxt/Roboto-Regular.woff2',
+          type: 'font/woff2',
+          crossorigin: 'anonymous'
+        }
+      ]
     }
   },
 
