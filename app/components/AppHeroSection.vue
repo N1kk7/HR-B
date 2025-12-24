@@ -18,6 +18,7 @@
       priority
       lazy
       style="transform: scale(1.15); opacity: 0.7"
+      sizes="(max-width: 480px) 480px, (max-width: 1024px) 1024px, 1200px"
     />
 
     <div class="hero_overlay"></div>

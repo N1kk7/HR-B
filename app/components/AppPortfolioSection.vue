@@ -13,7 +13,16 @@
           >
             <div class="item">
               <div class="picture">
-                <img :src="slide.picture" alt="type1" />
+                <NuxtImg
+                  :src="slide.picture"
+                  width="600"
+                  height="400"
+                  format="webp"
+                  alt="type1"
+                  quality="80"
+                  lazy
+                />
+                <!-- <img :src="slide.picture" alt="type1" /> -->
               </div>
             </div>
           </swiper-slide>
