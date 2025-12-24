@@ -126,12 +126,13 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
-import {gsap} from "gsap";
+
 
 const imgRef = ref(null);
 const contentRef = ref(null);
 
 onMounted(async() => {
+  const { gsap } = await import('gsap')
   await nextTick();
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
   // const el = imgRef.value;

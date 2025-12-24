@@ -34,10 +34,10 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const titleRef = ref(null);
 
@@ -101,6 +101,11 @@ const swiper = useSwiper(containerRef, {
 });
 
 onMounted(async () => {
+
+  const { gsap } = await import('gsap')
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  gsap.registerPlugin(ScrollTrigger)
+  
   await nextTick();
 
   gsap.from(titleRef.value, {

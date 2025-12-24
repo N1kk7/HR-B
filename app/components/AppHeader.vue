@@ -96,7 +96,7 @@
 </template>
 
 <script setup>
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 
 import { ref, onMounted } from "vue";
 
@@ -109,7 +109,8 @@ const burgerMenuHandler = () => {
   document.body.style.overflow = burgerState.value ? "hidden" : "auto";
 };
 
-onMounted(() => {
+onMounted(async () => {
+const { gsap } = await import('gsap')
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
   const el = headerRef.value;
   if (!el) return;

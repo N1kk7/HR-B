@@ -18,10 +18,10 @@
 
 <script setup>
 import { ref, onMounted, nextTick, onBeforeUpdate } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
   "Anton did a fantastic job renovating our bathroom. The tiling is perfect, and he finished everything on time. Highly recommend!",
@@ -46,6 +46,9 @@ onBeforeUpdate(() => {
 });
 
 onMounted(async () => {
+  const { gsap } = await import('gsap')
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  gsap.registerPlugin(ScrollTrigger)
   const isDesktop = window.innerWidth >= 1024;
 
   await nextTick();

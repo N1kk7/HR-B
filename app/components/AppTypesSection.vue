@@ -31,9 +31,9 @@
 
 <script setup>
 import { ref, onMounted, nextTick, onBeforeUpdate } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const titleRef = ref(null);
 const typeRefs = ref([]);
@@ -49,6 +49,9 @@ onBeforeUpdate(() => {
 });
 
 onMounted(async () => {
+  const { gsap } = await import('gsap')
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  gsap.registerPlugin(ScrollTrigger)
   const isDesktop = window.innerWidth >= 1024;
 
   await nextTick();

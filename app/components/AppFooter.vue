@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="container">
       <div class="footer_wrapper">
-        <img src="/images/logo.webp" alt="logo" ref="leftContent" />
+        <img src="/images/logo.webp" alt="logo" ref="leftContent" width="120" height="40"/>
 
         <div class="footer_contacts" ref="rightContent">
           <span class="author"> Anton Romanov </span>
@@ -17,21 +17,22 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const rightContent = ref(null);
 const leftContent = ref(null);
 
-onMounted(() => {
+onMounted(async () => {
+  const { gsap } = await import('gsap')
+  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+  gsap.registerPlugin(ScrollTrigger)
+
   const isDesktop = window.innerWidth >= 480;
 
   if (isDesktop) {
     gsap.from(leftContent.value, {
       x: -100,
-      opacity: 0,
+      opacity: 0, 
       duration: 1,
       delay: 0.3,
       ease: "power4.out",
