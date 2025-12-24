@@ -12,6 +12,7 @@
       ref="imgRef"
       src="/images/hero.webp"
       class="hero_img"
+      quality="80" 
       width="1200"
       height="600"
       alt="hero"
