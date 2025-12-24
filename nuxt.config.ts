@@ -9,12 +9,16 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: 'HR&B Constructions',
       meta: [
         { 
           name: 'viewport', 
           content: 'width=device-width, initial-scale=1' 
         }
-      ]
+      ],
+      htmlAttrs: {
+        lang: 'en'
+      }
     }
   },
 

@@ -22,5 +22,6 @@ import AppHeader from "~/components/AppHeader.vue";
 }
 main {
   flex: 1;
+  z-index: 1;
 }
 </style>
