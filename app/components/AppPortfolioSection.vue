@@ -15,12 +15,23 @@
               <div class="picture">
                 <!-- <img :src="slide.picture" alt="type1" /> -->
                  <NuxtImg
+                    v-if="desktopSize"
+                    :src="slide.picture"
+                    :width="slide.width"
+                    :height="slide.height"
+                    format="webp"
+                    quality="80"
+                    priority
+                    :alt="slide.id"
+                  />
+                 <NuxtImg
+                    v-else
                     :src="slide.picture"
                     :alt="slide.id"
                     :width="slide.width"
                     :height="slide.height"
                     format="webp"
-                    quality="80"
+                    quality="75"
                     lazy
                   />
               </div>
@@ -40,6 +51,8 @@ import { ref, onMounted } from "vue";
 // gsap.registerPlugin(ScrollTrigger);
 
 const titleRef = ref(null);
+
+const desktopSize = ref(false);
 
 // Create 10 slides
 const containerRef = ref(null);
@@ -102,10 +115,13 @@ const swiper = useSwiper(containerRef, {
 
 onMounted(async () => {
 
+
+  desktopSize.value = window.innerWidth >= 768; 
+
   const { gsap } = await import('gsap')
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
   gsap.registerPlugin(ScrollTrigger)
-  
+
   await nextTick();
 
   gsap.from(titleRef.value, {

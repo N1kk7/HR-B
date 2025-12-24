@@ -33,6 +33,7 @@ useHead({
         .hero { width: 100%; height: 600px; }
         .hero_img { transform: scale(1.15); opacity: 0.7; }
         .header_content { display: flex; justify-content: space-between; }
+        .burger_btn { width: 40px; height: 40px; }
       `
     }
   ]
