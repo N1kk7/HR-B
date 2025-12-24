@@ -38,7 +38,7 @@ onMounted(async () => {
       ease: "power4.out",
       scrollTrigger: {
         trigger: leftContent.value,
-        start: "top 60%",
+        start: "top 70%",
         once: true,
       },
     });
@@ -51,7 +51,7 @@ onMounted(async () => {
       ease: "power4.out",
       scrollTrigger: {
         trigger: rightContent.value,
-        start: "top 60%",
+        start: "top 70%",
         once: true,
       },
     });
