@@ -14,6 +14,10 @@ export default defineNuxtConfig({
         { 
           name: 'viewport', 
           content: 'width=device-width, initial-scale=1' 
+        },
+        {
+          name: 'description',
+          content: 'Tile installation, kitchen cabinet installation and refinishing, and wallpaper installation with professional workmanship and attention to detail.'
         }
       ],
       htmlAttrs: {
