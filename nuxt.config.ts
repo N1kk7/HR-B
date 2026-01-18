@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   build: {
-    transpile: ['gsap']
+    transpile: []
   },
   app: {
     head: {
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
       }
     },
     optimizeDeps: {
-      include: ['gsap']
+      include: []
     }
   },
 
@@ -53,5 +53,6 @@ export default defineNuxtConfig({
   },
 
   modules: ['nuxt-swiper', '@nuxt/image'],
+  plugins: ['@/plugins/gsap.client.ts'],
 
 })

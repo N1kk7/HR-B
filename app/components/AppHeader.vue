@@ -1,5 +1,5 @@
 <template>
-  <div class="app_header" ref="headerRef" style="opacity: 0">
+  <div class="app_header" ref="headerRef" style="opacity: 0" :class="currentPath ? 'white_bg' : ''">
     <div class="container">
       <div class="header_content">
         <a class="tablet_tel" href="tel:+15082154267">+15082154267</a>
@@ -9,13 +9,23 @@
         <nav class="nav_wrapper">
           <ul class="nav_items">
             <li class="nav_item">
-              <a href="#types">Types of work</a>
+              <NuxtLink to="/#types">Types of work</NuxtLink>
+              <!-- <a href="#types">Types of work</a> -->
             </li>
             <li class="nav_item">
-              <a href="#reviews"> Client Reviews </a>
+              <NuxtLink to="/#about">About HR&B</NuxtLink>
+              <!-- <a href="#about">About HR&B</a> -->
             </li>
             <li class="nav_item">
-              <a href="#portfolio"> Portfolio </a>
+              <NuxtLink to="/#reviews">Client Reviews</NuxtLink>
+              <!-- <a href="#reviews"> Client Reviews </a> -->
+            </li>
+            <li class="nav_item">
+              <NuxtLink to="/#portfolio">Portfolio</NuxtLink>
+              <!-- <a href="#portfolio"> Portfolio </a> -->
+            </li>
+            <li class="nav_item">
+              <NuxtLink to="/#industry">Industry Expertise</NuxtLink>
             </li>
           </ul>
         </nav>
@@ -32,29 +42,29 @@
           >
             <path
               d="M33.25 9.1875C33.9749 9.1875 34.5625 9.77513 34.5625 10.5C34.5625 11.2249 33.9749 11.8125 33.25 11.8125H8.75C8.02513 11.8125 7.4375 11.2249 7.4375 10.5C7.4375 9.77513 8.02513 9.1875 8.75 9.1875H33.25Z"
-              fill="#FFD036"
+              fill="none"
             />
             <path
               d="M33.25 19.6875C33.9749 19.6875 34.5625 20.2751 34.5625 21C34.5625 21.7249 33.9749 22.3125 33.25 22.3125H22.75C22.0251 22.3125 21.4375 21.7249 21.4375 21C21.4375 20.2751 22.0251 19.6875 22.75 19.6875H33.25Z"
-              fill="#FFD036"
+              fill="none"
             />
             <path
               d="M33.25 30.1875C33.9749 30.1875 34.5625 30.7751 34.5625 31.5C34.5625 32.2249 33.9749 32.8125 33.25 32.8125H8.75C8.02513 32.8125 7.4375 32.2249 7.4375 31.5C7.4375 30.7751 8.02513 30.1875 8.75 30.1875H33.25Z"
-              fill="#FFD036"
+              fill="none"
             />
             <path
               d="M33.25 9.1875C33.9749 9.1875 34.5625 9.77513 34.5625 10.5C34.5625 11.2249 33.9749 11.8125 33.25 11.8125H8.75C8.02513 11.8125 7.4375 11.2249 7.4375 10.5C7.4375 9.77513 8.02513 9.1875 8.75 9.1875H33.25Z"
-              stroke="#FFD036"
+              stroke="none"
               stroke-linecap="round"
             />
             <path
               d="M33.25 19.6875C33.9749 19.6875 34.5625 20.2751 34.5625 21C34.5625 21.7249 33.9749 22.3125 33.25 22.3125H22.75C22.0251 22.3125 21.4375 21.7249 21.4375 21C21.4375 20.2751 22.0251 19.6875 22.75 19.6875H33.25Z"
-              stroke="#FFD036"
+              stroke="none"
               stroke-linecap="round"
             />
             <path
               d="M33.25 30.1875C33.9749 30.1875 34.5625 30.7751 34.5625 31.5C34.5625 32.2249 33.9749 32.8125 33.25 32.8125H8.75C8.02513 32.8125 7.4375 32.2249 7.4375 31.5C7.4375 30.7751 8.02513 30.1875 8.75 30.1875H33.25Z"
-              stroke="#FFD036"
+              stroke="none"
               stroke-linecap="round"
             />
           </svg>
@@ -80,14 +90,26 @@
           </button>
           <ul>
             <li @click="burgerMenuHandler">
-              <a href="#types">Types of work</a>
+              <NuxtLink to="/#types">Types of work</NuxtLink>
+              <!-- <a href="#types">Types of work</a> -->
             </li>
             <li @click="burgerMenuHandler">
-              <a href="#reviews"> Client Reviews </a>
+              <NuxtLink to="/#about">About HR&k</NuxtLink>
+              <!-- <a href="#about">About HR&k</a> -->
             </li>
             <li @click="burgerMenuHandler">
-              <a href="#portfolio"> Portfolio </a>
+              <NuxtLink to="/#reviews">Client Reviews</NuxtLink>
+              <!-- <a href="#reviews"> Client Reviews </a> -->
             </li>
+            <li @click="burgerMenuHandler">
+              <NuxtLink to="/#portfolio"> Portfolio </NuxtLink>
+              <!-- <a href="#portfolio"> Portfolio </a> -->
+            </li>
+            <li @click="burgerMenuHandler">
+              <NuxtLink to="/#industry"> Industry Expertise </NuxtLink>
+              <!-- <a href="#industry"> Industry Expertise </a> -->
+            </li>
+
           </ul>
         </nav>
       </div>
@@ -98,11 +120,17 @@
 <script setup>
 // import { gsap } from "gsap";
 
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
+import { useRoute } from "vue-router";
 
 const burgerState = ref(false);
 
 const headerRef = ref(null);
+
+const route = useRoute();
+
+const currentPath = computed(() => route.path === '/portfolio');
+
 
 const burgerMenuHandler = () => {
   burgerState.value = !burgerState.value;
@@ -128,6 +156,18 @@ const { gsap } = await import('gsap')
 </script>
 
 <style lang="scss">
+
+  .white_bg {
+    position: relative;
+    .nav_item, .tel_content, .tablet_tel {
+      color: var(--text-primary);
+    }
+
+    .burger_btn svg {
+      stroke: black;
+      fill: black;
+    }
+  }
 // .app_header {
 //   width: 100%;
 //   height: fit-content;

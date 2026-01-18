@@ -19,6 +19,7 @@
 
 /// @include text(16px, 24px, 400);
 @mixin text($size, $lineHeight, $weight: 400) {
+  font-family: 'Roboto', sans-serif;
   font-size: $size;
   line-height: $lineHeight;
   font-weight: $weight;
@@ -28,4 +29,56 @@
 @mixin fluid-text($minSize, $minLH, $maxSize, $maxLH) {
   font-size: clamp($minSize, 2vw, $maxSize);
   line-height: clamp($minLH, 3vw, $maxLH);
+}
+
+@mixin defaultButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 12px 28px;
+  background: var(--btn-color);
+  transition: all ease 0.3s;
+  cursor: pointer;
+  gap: 4px;
+
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+
+  @media screen and (min-width: 1024px) {
+    
+    &:hover {
+      background-color: var(--btn-hover);
+      transition: all ease 0.3s;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 11px 24px;
+    span {
+      font-size: 1rem;
+    }
+
+  }
+  @media screen and (max-width: 480px) {
+    padding: 8px 22px;
+    span {
+      font-size: 0.9375rem;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    padding: 8px 20px;
+    span {
+      font-size: 0.875rem;
+    }
+  }
+
+  
 }

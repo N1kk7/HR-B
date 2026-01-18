@@ -116,7 +116,7 @@
           <a class="view_btn" href="#portfolio" style="opacity: 0"
           aria-label="View portfolio"
             >
-            View portfolio
+            Order a project
             </a>
         </div>
       </div>
@@ -135,10 +135,7 @@ onMounted(async() => {
   const { gsap } = await import('gsap')
   await nextTick();
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
-  // const el = imgRef.value;
   const imgEl = imgRef.value.imgEl;
-
-  console.log(imgEl);
 
   if (!imgEl) return;
 
@@ -147,7 +144,6 @@ onMounted(async() => {
     scale: 1,
     opacity: 1,
     duration: 1.8,
-    // ease: "back.out(1.2)" ,
     ease: "power4.out",
   });
 

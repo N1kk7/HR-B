@@ -1,10 +1,16 @@
 <template>
-  <div class="footer">
+  <div class="footer" ref="footerRef">
     <div class="container">
       <div class="footer_wrapper">
-        <img src="/images/logo.webp" alt="logo" ref="leftContent" width="120" height="40"/>
+        <img
+          src="/images/logo.webp"
+          alt="logo"
+          ref="leftRef"
+          width="120"
+          height="40"
+        />
 
-        <div class="footer_contacts" ref="rightContent">
+        <div class="footer_contacts" ref="rightRef">
           <span class="author"> Anton Romanov </span>
           <a href="tel:+15082154267 ">+15082154267</a>
 
@@ -16,70 +22,40 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, nextTick } from "vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
-const rightContent = ref(null);
-const leftContent = ref(null);
+const footerRef = ref(null);
+const leftRef = ref(null);
+const rightRef = ref(null);
 
-onMounted(async () => {
-  const { gsap } = await import('gsap')
-  const { ScrollTrigger } = await import('gsap/ScrollTrigger')
-  gsap.registerPlugin(ScrollTrigger)
-
-  const isDesktop = window.innerWidth >= 480;
-
-  if (isDesktop) {
-    gsap.from(leftContent.value, {
+onMounted(() => {
+  if (leftRef.value) {
+    gsap.from(leftRef.value, {
       x: -100,
-      opacity: 0, 
+      opacity: 0,
       duration: 1,
-      delay: 0.3,
-      ease: "power4.out",
+      ease: "power3.out",
       scrollTrigger: {
-        trigger: leftContent.value,
-        start: "top 70%",
+        trigger: footerRef.value,
+        start: "top 90%",
         once: true,
       },
     });
+  }
 
-    gsap.from(rightContent.value, {
+  if (rightRef.value) {
+    gsap.from(rightRef.value, {
       x: 100,
       opacity: 0,
       duration: 1,
-      delay: 0.3,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: rightContent.value,
-        start: "top 70%",
-        once: true,
-      },
-    });
-  } else {
-    gsap.from(rightContent.value, {
-      y: 60,
-      opacity: 0,
-      duration: 1.7,
-      delay: 0.6,
       ease: "power3.out",
-      stagger: 0.25,
       scrollTrigger: {
-        trigger: rightContent.value,
-        start: "top 40%",
-        once: true,
-      },
-    });
-
-    gsap.from(leftContent.value, {
-      y: 60,
-      opacity: 0,
-      duration: 1.7,
-      delay: 0.6,
-      ease: "power3.out",
-      stagger: 0.25,
-      scrollTrigger: {
-        trigger: leftContent.value,
-        start: "top 40%",
+        trigger: footerRef.value,
+        start: "top 90%",
         once: true,
       },
     });

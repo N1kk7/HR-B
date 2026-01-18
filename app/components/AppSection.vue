@@ -13,40 +13,41 @@
 
 <style scoped lang="scss">
 .section {
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 
   @media screen and (max-width: 1024px) {
-    margin-bottom: 64px;
-  }
-  @media screen and (max-width: 768px) {
     margin-bottom: 56px;
   }
+  @media screen and (max-width: 768px) {
+    margin-bottom: 40px;
+  }
   @media screen and (max-width: 480px) {
-    margin-bottom: 52px;
+    margin-bottom: 32px;
   }
   @media screen and (max-width: 375px) {
-    margin-bottom: 48px;
+    margin-bottom: 28px;
   }
 
   h2 {
-    @include text(48px, 150%, 300);
+    @include text(3rem, 150%, 300);
     color: var(--text-primary);
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
     @media screen and (max-width: 1024px) {
-      margin-bottom: 48px;
+      @include text(2.75rem, 150%, 300);
+      margin-bottom: 24px;
     }
     @media screen and (max-width: 768px) {
-      margin-bottom: 44px;
-      @include text(44px, 150%, 300);
+      margin-bottom: 20px;
+      @include text(2.5rem, 150%, 300);
     }
     @media screen and (max-width: 480px) {
-      margin-bottom: 36px;
-      @include text(36px, 150%, 300);
+      margin-bottom: 18px;
+      @include text(2.375rem, 150%, 300);
     }
-    @media screen and (max-width: 420px) {
-      margin-bottom: 32px;
-      @include text(30px, 150%, 300);
+    @media screen and (max-width: 375px) {
+      margin-bottom: 16px;
+      @include text(2rem, 150%, 300);
     }
   }
 }

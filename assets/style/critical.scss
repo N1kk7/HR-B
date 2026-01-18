@@ -50,7 +50,7 @@
 }
 
 .header_logo {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -64,7 +64,7 @@
 }
 
 .nav_wrapper {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 }
@@ -74,11 +74,12 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  gap: 60px;
+  gap: clamp(14px, 1.15vw, 16px);;
+  // gap: 16px;
 
-  @media screen and (max-width: 1024px) {
-    gap: clamp(15px, 3vw, 55px);
-  }
+  // @media screen and (max-width: 1024px) {
+  //   gap: clamp(12px, 1.5vw, 16px);
+  // }
 }
 
 .nav_item {
@@ -88,6 +89,7 @@
   line-height: 150%;
   color: var(--bg-color);
   transition: all ease 0.3s;
+  white-space: nowrap;
   cursor: pointer;
   padding: 10px;
 
@@ -117,21 +119,26 @@
 }
 
 .tel_content {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 }
 
 .tablet_tel {
   display: none;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: block;
   }
 }
 
 .burger_btn {
   display: none;
-  @media screen and (max-width: 768px) {
+
+  svg {
+    fill: #FFD036;
+    stroke: #FFD036;
+  }
+  @media screen and (max-width: 1024px) {
     display: block;
   }
 }
@@ -181,14 +188,14 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   overflow: hidden;
 
   @media screen and (max-width: 1024px) {
-    margin-bottom: 64px;
+    margin-bottom: 52px;
   }
   @media screen and (max-width: 768px) {
-    margin-bottom: 42px;
+    margin-bottom: 44px;
   }
   @media screen and (max-width: 480px) {
     margin-bottom: 40px;
