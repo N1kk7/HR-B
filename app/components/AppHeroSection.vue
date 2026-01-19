@@ -21,31 +21,26 @@
       style="transform: scale(1.15); opacity: 0.7"
       sizes="(max-width: 480px) 480px, (max-width: 1024px) 1024px, 1200px"
     /> -->
-        <!-- v-if="isMobile"
+    <!-- v-if="isMobile"
         ref="mobileVideo" -->
 
-
-
     <video
-        ref="videoRef"
-        id="promo-video"
-        class="hero_video"
-        playsinline
-        autoplay
-        muted
-        loop
-        preload="auto"
-        poster="/images/video_preview.webp"
+      ref="videoRef"
+      id="promo-video"
+      class="hero_video"
+      playsinline
+      autoplay
+      muted
+      loop
+      preload="auto"
+      poster="/images/video_preview.webp"
     >
-        <!-- <source 
+      <!-- <source 
             src="../public/videos/hero-final-cropped1.mp4" 
             type="video/mp4" 
         /> -->
-          <source 
-            src="/videos/hero_video_web.mp4" 
-            type="video/mp4" 
-        />
-        Your browser does not support the video tag.
+      <source src="/videos/hero_video_web.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
 
     <div class="hero_overlay"></div>
@@ -139,11 +134,14 @@
             <span> Kitchen cabinets </span>
           </div>
 
-          <a class="view_btn" href="#portfolio" style="opacity: 0"
-          aria-label="View portfolio"
-            >
+          <a
+            class="view_btn"
+            href="#portfolio"
+            style="opacity: 0"
+            aria-label="View portfolio"
+          >
             Order a project
-            </a>
+          </a>
         </div>
       </div>
     </div>
@@ -154,53 +152,50 @@
 import { ref, onMounted, nextTick } from "vue";
 import gsap from "gsap";
 
-
-
 // const imgRef = ref(null);
 const contentRef = ref(null);
 const videoRef = ref(null);
 
-onMounted(async() => {
+onMounted(async () => {
   // const { gsap } = await import('gsap')
 
-   await nextTick();
+  await nextTick();
 
-   const video = videoRef.value;
+  const video = videoRef.value;
 
-     if (video && window.innerWidth < 768) {
-    video.addEventListener('loadeddata', startAnimation, { once: true });
+  if (video && window.innerWidth < 768) {
+    video.addEventListener("loadeddata", startAnimation, { once: true });
   } else {
     startAnimation();
   }
 
   function startAnimation() {
     const contentEls = contentRef.value.querySelectorAll(
-      ".mobile_logo, .hero_text, .types_of_work, .view_btn"
+      ".mobile_logo, .hero_text, .types_of_work, .view_btn",
     );
 
-    gsap.fromTo(
-      contentEls,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.12,
-        duration: 0.6,
-        ease: "power3.out",
-      }
-    );
+    gsap.set(contentEls, {
+      opacity: 0,
+      y: 30,
+    });
+
+    gsap.to(contentEls, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: "power3.out",
+    });
   }
   // if (videoRef.value) {
   //   videoRef.value.playbackRate = 1.2;
   // }
-
 
   // await nextTick();
   // const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
   // const imgEl = imgRef.value.imgEl;
 
   // if (!imgEl) return;
-
 
   // tl.to(imgEl, {
   //   scale: 1,
@@ -230,7 +225,6 @@ onMounted(async() => {
 </script>
 
 <style lang="scss">
-
 // .hero_section {
 //   background-color: lightgray;
 //   width: 100vw;
