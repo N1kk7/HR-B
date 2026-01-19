@@ -152,6 +152,8 @@
 
 <script setup>
 import { ref, onMounted, nextTick } from "vue";
+import gsap from "gsap";
+
 
 
 // const imgRef = ref(null);
@@ -159,12 +161,42 @@ const contentRef = ref(null);
 const videoRef = ref(null);
 
 onMounted(async() => {
-  if (videoRef.value) {
-    videoRef.value.playbackRate = 1.2;
+  // const { gsap } = await import('gsap')
+
+   await nextTick();
+
+   const video = videoRef.value;
+
+     if (video && window.innerWidth < 768) {
+    video.addEventListener('loadeddata', startAnimation, { once: true });
+  } else {
+    startAnimation();
   }
-  const { gsap } = await import('gsap')
-  await nextTick();
-  const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
+
+  function startAnimation() {
+    const contentEls = contentRef.value.querySelectorAll(
+      ".mobile_logo, .hero_text, .types_of_work, .view_btn"
+    );
+
+    gsap.fromTo(
+      contentEls,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.12,
+        duration: 0.6,
+        ease: "power3.out",
+      }
+    );
+  }
+  // if (videoRef.value) {
+  //   videoRef.value.playbackRate = 1.2;
+  // }
+
+
+  // await nextTick();
+  // const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
   // const imgEl = imgRef.value.imgEl;
 
   // if (!imgEl) return;
@@ -177,23 +209,23 @@ onMounted(async() => {
   //   ease: "power4.out",
   // });
 
-  const contentEls = contentRef.value.querySelectorAll(
-    ".mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn"
-  );
+  // const contentEls = contentRef.value.querySelectorAll(
+  //   ".mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn"
+  // );
 
-  contentEls.forEach((el) => {
-    el.style.opacity = 0;
-    el.style.transform = "translateY(30px)";
-  });
+  // contentEls.forEach((el) => {
+  //   el.style.opacity = 0;
+  //   el.style.transform = "translateY(30px)";
+  // });
 
-  gsap.to(contentEls, {
-    y: 0,
-    opacity: 1,
-    stagger: 0.2,
-    duration: 0.8,
-    delay: 0.5,
-    ease: "power4.out",
-  });
+  // gsap.to(contentEls, {
+  //   y: 0,
+  //   opacity: 1,
+  //   stagger: 0.2,
+  //   duration: 0.8,
+  //   delay: 0.5,
+  //   ease: "power4.out",
+  // });
 });
 </script>
 

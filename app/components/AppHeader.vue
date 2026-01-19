@@ -196,6 +196,8 @@
 
 import { ref, onMounted, watch, computed } from "vue";
 import { useRoute } from "vue-router";
+import gsap from "gsap";
+
 
 const burgerState = ref(false);
 
@@ -211,8 +213,8 @@ const burgerMenuHandler = () => {
 };
 
 onMounted(async () => {
-  const { gsap } = await import("gsap");
-  const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
+  // const { gsap } = await import("gsap");
+  const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
   const el = headerRef.value;
   if (!el) return;
 
