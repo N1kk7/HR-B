@@ -1,28 +1,5 @@
 <template>
   <div class="hero_section">
-    <!-- <img
-      ref="imgRef"
-      src="/images/hero.webp"
-      class="hero_img"
-      alt="hero"
-      style="transform: scale(1.15); opacity: 0.7"
-    /> -->
-
-    <!-- <NuxtImg
-      ref="imgRef"
-      src="/images/hero.webp"
-      class="hero_img"
-      quality="80" 
-      width="1200"
-      height="600"
-      alt="hero"
-      priority
-      lazy
-      style="transform: scale(1.15); opacity: 0.7"
-      sizes="(max-width: 480px) 480px, (max-width: 1024px) 1024px, 1200px"
-    /> -->
-    <!-- v-if="isMobile"
-        ref="mobileVideo" -->
 
     <video
       ref="videoRef"
@@ -136,7 +113,7 @@
 
           <a
             class="view_btn"
-            href="#portfolio"
+            href="#contact"
             style="opacity: 0"
             aria-label="View portfolio"
           >
@@ -187,40 +164,6 @@ onMounted(async () => {
       ease: "power3.out",
     });
   }
-  // if (videoRef.value) {
-  //   videoRef.value.playbackRate = 1.2;
-  // }
-
-  // await nextTick();
-  // const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
-  // const imgEl = imgRef.value.imgEl;
-
-  // if (!imgEl) return;
-
-  // tl.to(imgEl, {
-  //   scale: 1,
-  //   opacity: 1,
-  //   duration: 1.8,
-  //   ease: "power4.out",
-  // });
-
-  // const contentEls = contentRef.value.querySelectorAll(
-  //   ".mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn"
-  // );
-
-  // contentEls.forEach((el) => {
-  //   el.style.opacity = 0;
-  //   el.style.transform = "translateY(30px)";
-  // });
-
-  // gsap.to(contentEls, {
-  //   y: 0,
-  //   opacity: 1,
-  //   stagger: 0.2,
-  //   duration: 0.8,
-  //   delay: 0.5,
-  //   ease: "power4.out",
-  // });
 });
 </script>
 

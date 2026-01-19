@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="contact" ref="contactRef">
+    <div class="contact" ref="contactRef" id="contact">
       <div class="contact_title" ref="titleRef">
         Let’s make your dream space a reality
       </div>
