@@ -177,6 +177,7 @@ function startAnimation() {
   );
 
   if (!contentEls.length) return;
+  
 
   gsap.fromTo(
     contentEls,
