@@ -169,6 +169,30 @@ const videoRef = ref(null);
 // }
 // });
 
+function startAnimation() {
+  if (!contentRef.value) return;
+
+  const contentEls = contentRef.value.querySelectorAll(
+    ".mobile_logo, .hero_text, .types_of_work, .view_btn"
+  );
+
+  if (!contentEls.length) return;
+
+  gsap.fromTo(
+    contentEls,
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.6,
+      ease: "power3.out",
+      clearProps: "all",
+    }
+  );
+}
+
+
 onMounted(async () => {
   await nextTick();
 
