@@ -25,7 +25,7 @@
     <div class="container">
       <div class="hero_wrapper">
         <div class="hero_content" ref="contentRef">
-          <div class="mobile_logo" style="opacity: 0">
+          <div class="mobile_logo" >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="92"
@@ -100,12 +100,12 @@
             </svg>
           </div>
 
-          <p class="hero_text" style="opacity: 0">
+          <p class="hero_text">
             Over 10 years of fast, clean, and precise work — solo or with a
             team. Open to partnerships and subcontracting opportunities.
           </p>
 
-          <div class="types_of_work" style="opacity: 0">
+          <div class="types_of_work">
             <span> Tile installation </span>
             <span class="dot_elem"> Wallpaper installation </span>
             <span> Kitchen cabinets </span>
@@ -114,7 +114,6 @@
           <a
             class="view_btn"
             href="#contact"
-            style="opacity: 0"
             aria-label="View portfolio"
           >
             Order a project
@@ -157,6 +156,7 @@ onMounted(async () => {
     });
 
     gsap.to(contentEls, {
+      autoAlpha: 1,
       opacity: 1,
       y: 0,
       stagger: 0.12,
