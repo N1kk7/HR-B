@@ -8,7 +8,7 @@
       style="transform: scale(1.15); opacity: 0.7"
     /> -->
 
-    <NuxtImg
+    <!-- <NuxtImg
       ref="imgRef"
       src="/images/hero.webp"
       class="hero_img"
@@ -20,7 +20,33 @@
       lazy
       style="transform: scale(1.15); opacity: 0.7"
       sizes="(max-width: 480px) 480px, (max-width: 1024px) 1024px, 1200px"
-    />
+    /> -->
+        <!-- v-if="isMobile"
+        ref="mobileVideo" -->
+
+
+
+    <video
+        ref="videoRef"
+        id="promo-video"
+        class="hero_video"
+        playsinline
+        autoplay
+        muted
+        loop
+        preload="auto"
+        poster="/images/video_preview.webp"
+    >
+        <!-- <source 
+            src="../public/videos/hero-final-cropped1.mp4" 
+            type="video/mp4" 
+        /> -->
+          <source 
+            src="/videos/hero_video_web.mp4" 
+            type="video/mp4" 
+        />
+        Your browser does not support the video tag.
+    </video>
 
     <div class="hero_overlay"></div>
 
@@ -128,24 +154,28 @@
 import { ref, onMounted, nextTick } from "vue";
 
 
-const imgRef = ref(null);
+// const imgRef = ref(null);
 const contentRef = ref(null);
+const videoRef = ref(null);
 
 onMounted(async() => {
+  if (videoRef.value) {
+    videoRef.value.playbackRate = 1.2;
+  }
   const { gsap } = await import('gsap')
   await nextTick();
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
-  const imgEl = imgRef.value.imgEl;
+  // const imgEl = imgRef.value.imgEl;
 
-  if (!imgEl) return;
+  // if (!imgEl) return;
 
 
-  tl.to(imgEl, {
-    scale: 1,
-    opacity: 1,
-    duration: 1.8,
-    ease: "power4.out",
-  });
+  // tl.to(imgEl, {
+  //   scale: 1,
+  //   opacity: 1,
+  //   duration: 1.8,
+  //   ease: "power4.out",
+  // });
 
   const contentEls = contentRef.value.querySelectorAll(
     ".mobile_logo, .hero_text, .hero_p, .types_of_work, .view_btn"
@@ -168,6 +198,7 @@ onMounted(async() => {
 </script>
 
 <style lang="scss">
+
 // .hero_section {
 //   background-color: lightgray;
 //   width: 100vw;

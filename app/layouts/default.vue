@@ -19,6 +19,7 @@ import AppHeader from "~/components/AppHeader.vue";
   flex-direction: column;
   min-height: 100vh;
   background: var(--bg-color);
+  overflow: hidden;
 }
 main {
   flex: 1;

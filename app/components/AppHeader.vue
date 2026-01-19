@@ -1,10 +1,49 @@
 <template>
-  <div class="app_header" ref="headerRef" style="opacity: 0" :class="currentPath ? 'white_bg' : ''">
+  <div
+    class="app_header"
+    ref="headerRef"
+    style="opacity: 0"
+    :class="currentPath ? 'white_bg' : ''"
+  >
     <div class="container">
       <div class="header_content">
-        <a class="tablet_tel" href="tel:+15082154267">+15082154267</a>
+        <a class="tablet_tel" href="tel:+15082154267">
+          <svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 512.000000 512.000000"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <g
+              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              fill="var(--btn-color)"
+              stroke="none"
+            >
+              <path
+                d="M757 5109 c-102 -24 -353 -196 -499 -342 -109 -109 -190 -269 -231
+          -457 -31 -140 -30 -434 2 -613 208 -1182 1283 -2543 2576 -3264 560 -312 1160
+          -473 1582 -424 336 39 524 150 738 436 185 247 220 351 180 524 -24 99 -58
+          151 -179 269 -192 186 -377 334 -611 488 -255 167 -320 194 -475 194 -95 0
+          -176 -18 -248 -54 -67 -34 -208 -145 -336 -266 -122 -115 -168 -141 -268 -148
+          -114 -8 -169 18 -393 187 -352 266 -700 613 -957 956 -169 226 -194 279 -186
+          393 7 100 33 146 148 268 198 211 286 341 311 463 17 82 7 243 -20 313 -27 71
+          -156 277 -281 450 -180 248 -448 541 -537 587 -91 46 -221 62 -316 40z"
+              />
+            </g>
+          </svg>
 
-        <img class="header_logo" src="/images/logo.webp" alt="logo" width="120" height="40"/>
+          <span> +15082154267 </span>
+        </a>
+
+        <img
+          class="header_logo"
+          src="/images/logo_white.webp"
+          alt="logo"
+          width="120"
+          height="40"
+        />
 
         <nav class="nav_wrapper">
           <ul class="nav_items">
@@ -30,9 +69,41 @@
           </ul>
         </nav>
 
-        <a class="tel_content" href="tel:+15082154267">+15082154267</a>
+        <a class="tel_content" href="tel:+15082154267">
+          <svg
+            version="1.0"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 512.000000 512.000000"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <g
+              transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+              fill="var(--btn-color)"
+              stroke="none"
+            >
+              <path
+                d="M757 5109 c-102 -24 -353 -196 -499 -342 -109 -109 -190 -269 -231
+          -457 -31 -140 -30 -434 2 -613 208 -1182 1283 -2543 2576 -3264 560 -312 1160
+          -473 1582 -424 336 39 524 150 738 436 185 247 220 351 180 524 -24 99 -58
+          151 -179 269 -192 186 -377 334 -611 488 -255 167 -320 194 -475 194 -95 0
+          -176 -18 -248 -54 -67 -34 -208 -145 -336 -266 -122 -115 -168 -141 -268 -148
+          -114 -8 -169 18 -393 187 -352 266 -700 613 -957 956 -169 226 -194 279 -186
+          393 7 100 33 146 148 268 198 211 286 341 311 463 17 82 7 243 -20 313 -27 71
+          -156 277 -281 450 -180 248 -448 541 -537 587 -91 46 -221 62 -316 40z"
+              />
+            </g>
+          </svg>
 
-        <button class="burger_btn" @click="burgerMenuHandler" aria-label="Open menu">
+          <span> +15082154267 </span>
+        </a>
+
+        <button
+          class="burger_btn"
+          @click="burgerMenuHandler"
+          aria-label="Open menu"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="42"
@@ -74,7 +145,11 @@
           class="mobile_menu"
           :class="burgerState ? 'mobile_menu_active' : ''"
         >
-          <button @click="burgerMenuHandler" class="close_btn" aria-label="Close menu">
+          <button
+            @click="burgerMenuHandler"
+            class="close_btn"
+            aria-label="Close menu"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22"
@@ -94,7 +169,7 @@
               <!-- <a href="#types">Types of work</a> -->
             </li>
             <li @click="burgerMenuHandler">
-              <NuxtLink to="/#about">About HR&k</NuxtLink>
+              <NuxtLink to="/#about">About HR&B</NuxtLink>
               <!-- <a href="#about">About HR&k</a> -->
             </li>
             <li @click="burgerMenuHandler">
@@ -109,7 +184,6 @@
               <NuxtLink to="/#industry"> Industry Expertise </NuxtLink>
               <!-- <a href="#industry"> Industry Expertise </a> -->
             </li>
-
           </ul>
         </nav>
       </div>
@@ -129,8 +203,7 @@ const headerRef = ref(null);
 
 const route = useRoute();
 
-const currentPath = computed(() => route.path === '/portfolio');
-
+const currentPath = computed(() => route.path === "/portfolio");
 
 const burgerMenuHandler = () => {
   burgerState.value = !burgerState.value;
@@ -138,12 +211,12 @@ const burgerMenuHandler = () => {
 };
 
 onMounted(async () => {
-const { gsap } = await import('gsap')
+  const { gsap } = await import("gsap");
   const tl = gsap.timeline({ defaults: { ease: "back.out(1.1)" } });
   const el = headerRef.value;
   if (!el) return;
 
-  (el.style.top = "-100%"), (el.style.opacity = 0);
+  ((el.style.top = "-100%"), (el.style.opacity = 0));
 
   tl.to(el, {
     opacity: 1,
@@ -156,18 +229,27 @@ const { gsap } = await import('gsap')
 </script>
 
 <style lang="scss">
-
-  .white_bg {
-    position: relative;
-    .nav_item, .tel_content, .tablet_tel {
-      color: var(--text-primary);
-    }
-
-    .burger_btn svg {
-      stroke: black;
-      fill: black;
-    }
+.white_bg {
+  position: relative;
+  .nav_item,
+  .tel_content,
+  .tablet_tel {
+    color: var(--text-primary);
   }
+
+  .tablet_tel {
+    border: 1px solid black;
+  }
+
+  .header_logo {
+    content: url("/images/logo.webp");
+  }
+
+  .burger_btn svg {
+    stroke: black;
+    fill: black;
+  }
+}
 // .app_header {
 //   width: 100%;
 //   height: fit-content;
