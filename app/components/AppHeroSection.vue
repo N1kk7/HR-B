@@ -133,41 +133,67 @@ import gsap from "gsap";
 const contentRef = ref(null);
 const videoRef = ref(null);
 
-onMounted(async () => {
-  // const { gsap } = await import('gsap')
+// onMounted(async () => {
+//   // const { gsap } = await import('gsap')
 
+//   await nextTick();
+
+//   const video = videoRef.value;
+
+//   if (video && window.innerWidth < 768) {
+//     video.addEventListener("loadeddata", startAnimation, { once: true });
+//   } else {
+//     startAnimation();
+//   }
+
+//  function startAnimation() {
+//   const contentEls = contentRef.value.querySelectorAll(
+//     ".mobile_logo, .hero_text, .types_of_work, .view_btn",
+//   );
+
+//   gsap.fromTo(
+//     contentEls,
+//     {
+//       opacity: 0,
+//       y: 30,
+//     },
+//     {
+//       opacity: 1,
+//       y: 0,
+//       stagger: 0.12,
+//       duration: 0.6,
+//       ease: "power3.out",
+//       clearProps: "opacity,transform",
+//     }
+//   );
+// }
+// });
+
+onMounted(async () => {
   await nextTick();
 
   const video = videoRef.value;
 
-  if (video && window.innerWidth < 768) {
-    video.addEventListener("loadeddata", startAnimation, { once: true });
-  } else {
+  let animationStarted = false;
+
+  const safeStart = () => {
+    if (animationStarted) return;
+    animationStarted = true;
     startAnimation();
-  }
+  };
 
- function startAnimation() {
-  const contentEls = contentRef.value.querySelectorAll(
-    ".mobile_logo, .hero_text, .types_of_work, .view_btn",
-  );
-
-  gsap.fromTo(
-    contentEls,
-    {
-      opacity: 0,
-      y: 30,
-    },
-    {
-      opacity: 1,
-      y: 0,
-      stagger: 0.12,
-      duration: 0.6,
-      ease: "power3.out",
-      clearProps: "opacity,transform",
+  if (video && window.innerWidth < 768) {
+    if (video.readyState >= 2) {
+      safeStart();
+    } else {
+      video.addEventListener("loadeddata", safeStart, { once: true });
+      setTimeout(safeStart, 1200);
     }
-  );
-}
+  } else {
+    safeStart();
+  }
 });
+
 </script>
 
 <style lang="scss">
