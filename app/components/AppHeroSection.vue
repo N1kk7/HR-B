@@ -184,8 +184,9 @@ function startAnimation() {
     {
       opacity: 1,
       y: 0,
+      delay: 1,
       stagger: 0.12,
-      duration: 0.6,
+      duration: 0.7,
       ease: "power3.out",
       clearProps: "all",
     }
