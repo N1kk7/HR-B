@@ -224,7 +224,7 @@ onMounted(async () => {
     opacity: 1,
     duration: 0.75,
     top: 0,
-    delay: 0.7,
+    delay: 0.6,
     ease: "power4.out",
   });
 });
