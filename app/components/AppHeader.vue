@@ -222,7 +222,7 @@ onMounted(async () => {
 
   tl.to(el, {
     opacity: 1,
-    duration: 0.7,
+    duration: 0.75,
     top: 0,
     delay: 0.7,
     ease: "power4.out",
