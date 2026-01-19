@@ -222,9 +222,9 @@ onMounted(async () => {
 
   tl.to(el, {
     opacity: 1,
-    duration: 0.6,
+    duration: 0.7,
     top: 0,
-    delay: 0.6,
+    delay: 0.7,
     ease: "power4.out",
   });
 });
