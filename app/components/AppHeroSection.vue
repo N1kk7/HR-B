@@ -107,7 +107,9 @@
 
           <div class="types_of_work" style="opacity: 0">
             <span> Tile installation </span>
+            <div class="dot_mobile"></div>
             <span class="dot_elem"> Wallpaper installation </span>
+            <div class="dot_mobile"></div>
             <span> Kitchen cabinets </span>
           </div>
 

@@ -9,8 +9,8 @@
       </div>
 
       <div class="contact_form" ref="formRef">
-        <input type="text" placeholder="Your name" class="contact_input" />
-        <input type="text" placeholder="Email or phone" class="contact_input" />
+        <input type="text" placeholder="Your name" class="contact_input" v-model="userName"/>
+        <input type="text" placeholder="Email or phone" class="contact_input" v-model="email"/>
         <ClientOnly>
           <textarea
             class="contact_textarea"
@@ -21,7 +21,7 @@
           </textarea>
         </ClientOnly>
 
-        <button class="contact_button" ref="buttonRef">Get in touch</button>
+        <button class="contact_button" ref="buttonRef" @click="handleSubmit">Get in touch</button>
       </div>
     </div>
   </div>
@@ -39,9 +39,64 @@ const titleRef = ref(null);
 const descRef = ref(null);
 const formRef = ref(null);
 const buttonRef = ref(null);
-const userName = ref(null);
-const email = ref(null);
+const userName = ref("");
+const email = ref("");
 const message = ref("");
+
+const sendEmailData = async () => {
+  const { error } = await $fetch("/api/send-form", {
+    method: "POST",
+    body: {
+      name: userName.value,
+      email: email.value,
+      message: message.value,
+      // recaptchaToken: token.value,
+    },
+  });
+
+  if (error.value) {
+    alert("Something went wrong.");
+  } else {
+    alert("Message sent successfully.");
+    userName.value = "";
+    email.value = "";
+    message.value = "";
+    // acceptTerms.value = false;
+    // token.value = "";
+    // isVerified.value = false;
+  }
+};
+
+const handleSubmit = () => {
+  const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (userName.value.trim().length < 1) {
+    alert("Please enter valid name.");
+    return;
+  }
+
+  if (!emailRegEx.test(email.value)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
+
+  if (message.value.trim().length < 5) {
+    alert("Message area should have at least 5 characters.");
+    return;
+  }
+
+  // if (!isVerified.value) {
+  //   alert("Please complete the reCAPTCHA.");
+  //   return;
+  // }
+
+  // if (!acceptTerms.value) {
+  //   alert("You must accept the terms.");
+  //   return;
+  // }
+
+  sendEmailData();
+};
 
 onMounted(async () => {
   await nextTick();
@@ -215,6 +270,7 @@ onMounted(async () => {
     height: auto;
     background: transparent;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0;
     padding: 8px;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
@@ -224,14 +280,14 @@ onMounted(async () => {
     color: var(--text-primary);
 
     @media screen and (max-width: 1024px) {
-      font-size: 0.875rem;
+      // font-size: 0.875rem;
     }
     @media screen and (max-width: 768px) {
-      font-size: 0.8125rem;
+      // font-size: 0.8125rem;
     }
 
     @media screen and (max-width: 480px) {
-      font-size: 0.75rem;
+      // font-size: 0.75rem;
       padding: 6px;
     }
   }

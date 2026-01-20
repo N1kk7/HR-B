@@ -124,7 +124,6 @@
   align-items: center;
   border: 1px solid var(--btn-color);
   border-radius: 30px;
-  padding-inline: 15px;
   transition: all ease 0.3s;
   gap: 5px;
   font-size: 20px;
@@ -132,11 +131,16 @@
   line-height: 150%;
   font-family: "Roboto", sans-serif;
   color: var(--bg-color);
-  padding: 10px;
+  padding: 10px 15px;
 
   svg {
     transform-origin: 50% 50%;
     animation: phone-shake 2.5s infinite ease-in-out;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding: 5px 12px;
+    font-size: 1rem;
   }
 }
 
@@ -376,25 +380,43 @@
   .dot_elem:before {
     left: -18px;
 
-    @media screen and (max-width: 375px) {
-      left: -10px;
+    @media screen and (max-width: 480px) {
+      display: none;
     }
   }
   .dot_elem:after {
     right: -18px;
 
-    @media screen and (max-width: 375px) {
-      right: -10px;
+    @media screen and (max-width: 480px) {
+      display: none;
+
     }
   }
+
+  
 
   @media screen and (max-width: 480px) {
     width: 100%;
     justify-content: space-between;
+    gap: unset;
   }
-  @media screen and (max-width: 375px) {
-    gap: 16px;
-  }
+}
+
+
+.dot_mobile {
+    display: none;
+
+    @media screen and (max-width: 480px) {
+      & {
+          background: var(--bg-color);
+      border-radius: 50%;
+      display: block;
+      width: 4px;
+      height: 4px;
+
+      }
+    
+    }
 }
 
 .view_btn {
