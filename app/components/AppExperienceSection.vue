@@ -292,7 +292,7 @@ onBeforeUnmount(() => {
     justify-content: center;
     align-items: center;
 
-    button {
+    a {
       @include mixins.defaultButton;
     }
   }
