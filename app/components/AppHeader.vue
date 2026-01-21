@@ -11,15 +11,13 @@
           <svg
             version="1.0"
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="15"
+            height="15"
             viewBox="0 0 512.000000 512.000000"
             preserveAspectRatio="xMidYMid meet"
           >
             <g
               transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-              fill="var(--btn-color)"
-              stroke="none"
             >
               <path
                 d="M757 5109 c-102 -24 -353 -196 -499 -342 -109 -109 -190 -269 -231
@@ -37,13 +35,17 @@
           <span> +15082154267 </span>
         </a>
 
-        <img
-          class="header_logo"
-          src="/images/logo_white.webp"
-          alt="logo"
-          width="120"
-          height="40"
-        />
+        <NuxtLink class="header_logo" to="/">
+
+          <img
+            
+            src="/images/logo_white.webp"
+            alt="logo"
+            width="120"
+            height="40"
+          />
+
+        </NuxtLink>
 
         <nav class="nav_wrapper">
           <ul class="nav_items">
@@ -239,8 +241,12 @@ onMounted(async () => {
     color: var(--text-primary);
   }
 
-  .tablet_tel {
+  .tablet_tel, .tel_content {
     border: 1px solid black;
+
+    svg {
+      fill: var(--text-primary);
+    }
   }
 
   .header_logo {

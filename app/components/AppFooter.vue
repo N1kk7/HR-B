@@ -41,7 +41,7 @@ onMounted(() => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: footerRef.value,
-        start: "top 90%",
+        start: "top 100%",
         once: true,
       },
     });
@@ -55,7 +55,7 @@ onMounted(() => {
       ease: "power3.out",
       scrollTrigger: {
         trigger: footerRef.value,
-        start: "top 90%",
+        start: "top 100%",
         once: true,
       },
     });

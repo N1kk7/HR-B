@@ -43,6 +43,11 @@
   cursor: pointer;
   gap: 4px;
 
+  &:active {
+    background-color: var(--btn-hover);
+    transition: all ease 0.3s;
+  }
+
   span {
     font-family: 'Roboto', sans-serif;
     font-size: 1.125rem;

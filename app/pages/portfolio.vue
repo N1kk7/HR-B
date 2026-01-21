@@ -3,7 +3,7 @@
     <div class="container">
       <div class="portfolio_section">
         <ClientOnly>
-          <div class="mobile_logo">
+          <NuxtLink to="/" class="mobile_logo">
             <NuxtImg 
               src="/images/logo.webp"
               width="100"
@@ -12,7 +12,7 @@
               alt="logo"
 
             />
-          </div>
+          </NuxtLink>
           <h1>Portfolio</h1>
 
           <div
@@ -296,31 +296,34 @@ onUnmounted(() => {
 .items_wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-bottom: 30px;
   gap: 20px;
 
   @media screen and (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 28px;
   }
-  @media screen and (max-width: 768px) {
-    margin-bottom: 24px;
-  }
-
   @media screen and (max-width: 480px) {
-    margin-bottom: 22px;
     gap: 16px;
   }
   @media screen and (max-width: 375px) {
-    margin-bottom: 20px;
     gap: 14px;
   }
 }
 
 .portfolio_btn {
   @include mixins.defaultButton;
-
-  margin: 0 auto;
+  margin: 30px auto 0;
+  @media screen and (max-width: 1024px) {
+    margin: 28px auto 0;
+  }
+  @media screen and (max-width: 768px) {
+    margin: 24px auto 0;
+  }
+  @media screen and (max-width: 480px) {
+    margin: 22px auto 0;
+  }
+  @media screen and (max-width: 375px) {
+    margin: 20px auto 0;
+  }
 
   
 }

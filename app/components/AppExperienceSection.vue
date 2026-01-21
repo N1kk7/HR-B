@@ -34,7 +34,7 @@
         </div>
 
         <div class="button_wrapper" ref="buttonRef">
-          <button class="experience_button">
+          <NuxtLink to="https://www.instagram.com/arcartfurniture?igsh=M25ld2Nham5uZWow" class="experience_button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -57,7 +57,7 @@
             </svg>
 
             <span> Arcart Furniture </span>
-          </button>
+          </NuxtLink>
         </div>
       </div>
       <div class="experience_media">

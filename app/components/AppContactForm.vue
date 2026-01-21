@@ -184,6 +184,7 @@ onMounted(async () => {
 
     @media screen and (max-width: 480px) {
       font-size: 2.375rem;
+      line-height: 130%;
     }
 
     @media screen and (max-width: 375px) {
@@ -330,18 +331,18 @@ onMounted(async () => {
   }
 
   @media screen and (max-width: 768px) {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 75px;
+    margin-bottom: 90px;
   }
 
   @media screen and (max-width: 480px) {
-    margin-top: 65px;
-    margin-bottom: 80px;
+    margin-top: 55px;
+    margin-bottom: 65px;
   }
 
   @media screen and (max-width: 375px) {
-    margin-top: 55px;
-    margin-bottom: 72px;
+    margin-top: 50px;
+    margin-bottom: 55px;
   }
 }
 </style>

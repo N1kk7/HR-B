@@ -26,7 +26,7 @@
       <div class="hero_wrapper">
         <div class="hero_content" ref="contentRef">
           <div class="mobile_logo" style="opacity: 0">
-            <svg
+            <!-- <svg
               xmlns="http://www.w3.org/2000/svg"
               width="92"
               height="47"
@@ -97,7 +97,14 @@
                 d="M91.2844 37.5486V46.4706H90.0956L85.604 39.5891V46.4706H84.4214V37.5486H85.604L90.114 44.4484V37.5486H91.2844Z"
                 fill="white"
               />
-            </svg>
+            </svg> -->
+            <NuxtImg
+              src="/images/logo_white.webp"
+              alt="logo"
+              width="100"
+              height="50"
+              priority
+            />
           </div>
 
           <p class="hero_text" style="opacity: 0">

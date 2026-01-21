@@ -43,11 +43,11 @@
     }
     @media screen and (max-width: 480px) {
       margin-bottom: 18px;
-      @include text(2.375rem, 150%, 300);
+      @include text(2.375rem, 130%, 300);
     }
     @media screen and (max-width: 375px) {
       margin-bottom: 16px;
-      @include text(2rem, 150%, 300);
+      @include text(2rem, 130%, 300);
     }
   }
 }
