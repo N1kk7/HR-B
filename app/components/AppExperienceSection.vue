@@ -34,7 +34,11 @@
         </div>
 
         <div class="button_wrapper" ref="buttonRef">
-          <NuxtLink to="https://www.instagram.com/arcartfurniture?igsh=M25ld2Nham5uZWow" class="experience_button">
+          <NuxtLink 
+            to="https://www.instagram.com/arcartfurniture?igsh=M25ld2Nham5uZWow" 
+            class="experience_button"
+            target="_blank"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
